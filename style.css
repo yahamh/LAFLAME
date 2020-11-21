@@ -49,3 +49,10 @@ iframe{
         grid-template-areas: "item1 item2" "item3 item4 ";
     }
 }
+
+@media (max-width : 375px){
+    .grid-container{
+        grid-template-columns: repeat(1,100%); 
+        grid-template-areas: "item1" "item2" "item3" "item4 ";
+    }
+}
