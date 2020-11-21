@@ -1,7 +1,51 @@
 .grid-container{
     display: grid; 
-    grid-template-columns: auto auto auto; 
+    grid-template-columns: repeat(3,33.3%); 
+    grid-template-areas: "item1 item2 item3" ". item4 .";
+    grid-row-gap: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding: 10px; 
     position: relative; 
     top: 150px;
+    place-items: center;
+}
+
+.grid-item{
+    width: 90%;
+    height: 480px;
+    display: flex;
+    flex-direction: column; 
+}
+
+.grid-item:nth-child(1){
+    grid-area: item1;
+}
+
+.grid-item:nth-child(2){
+    grid-area: item2;  
+}
+
+.grid-item:nth-child(3){  
+    grid-area: item3;  
+}
+
+.grid-item:nth-child(4){
+    grid-area: item4;  
+}
+
+.grid-item p{
+    height: 10%;
+}
+
+iframe{
+    width: 100%;
+    height: 90%;
+}
+
+@media (max-width : 1129px){
+    .grid-container{
+        grid-template-columns: repeat(2,50%); 
+        grid-template-areas: "item1 item2" "item3 item4 ";
+    }
 }
