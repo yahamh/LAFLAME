@@ -12659,7 +12659,7 @@ parcelRequire = (function (e, r, t, n) {
         I && (x(), window.addEventListener("resize", x)),
           (0, p.default)(),
           console.log(
-            "\n\nbuiltbylane.com x davidbaker.tv ϟ made in brooklyn\n\n\n"
+            "\n\nYACINE HAMDANI ϟ\n\n\n"
           );
       },
       {

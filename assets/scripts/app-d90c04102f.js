@@ -15982,34 +15982,7 @@
             return n;
           }
         }
-        function u(t) {
-          var e = t.slug;
-          return e.match(/[A-Z]/gm)
-            ? void (window.location.href = ("/" + e).toLocaleLowerCase())
-            : (document.body.setAttribute("data-route", e || "home"),
-              (h.route = e),
-              Object.keys(b).includes(e)
-                ? m
-                  ? ((m = !1), b[e]())
-                  : void f.default
-                      .get("/".concat(e))
-                      .then(function (t) {
-                        var n = document.createElement("div");
-                        n.innerHTML = t.data;
-                        var r = n.querySelector(".js-content");
-                        return (
-                          (v.innerHTML = r.innerHTML),
-                          x(e),
-                          window.ga &&
-                            window.ga("send", "pageview", location.pathname),
-                          b[e]()
-                        );
-                      })
-                      .catch(function (t) {
-                        return console.error(t), b[404]();
-                      })
-                : b[404]());
-        }
+       
         t("babel-polyfill"),
           t("core-js/fn/array/includes"),
           t("core-js/fn/object/keys"),
@@ -16054,9 +16027,6 @@
             privacy: function () {},
             help: function () {},
             signup: function () {},
-            404: function () {
-              v.innerHTML = "404";
-            },
           },
           x = function (t) {
             var e = "TRAVIS SCOTT";
