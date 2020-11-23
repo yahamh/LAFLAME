@@ -70,18 +70,34 @@ iframe .adsk-control {
         grid-template-columns: repeat(1,100%); 
         grid-template-areas: "item1" "item2" "item3" "item4 ";
     }
+
+    #MyConytainerDiv {
+        width: 115%;
+        height: 115%;
+        position: relative;
+    }
+    
+    #MyViewerDiv {
+        left: 75px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background-color: #F0F8FF;
+    }
 }
 
 
 #MyConytainerDiv {
-    position: absolute;
-    left: -95px;
     width: 115%;
     height:115%;
     position: relative;
+    left: -95px;
 }
 
 #MyViewerDiv {
+    position: relative;
+
     width: 100%;
     height: 100%;
     margin: 0;
