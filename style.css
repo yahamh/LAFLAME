@@ -1,7 +1,7 @@
 .grid-container{
     display: grid; 
     grid-template-columns: repeat(3,33.3%); 
-    grid-template-areas: "item1 item2 item3" ". item4 .";
+    grid-template-areas: "item1 item2 item3" "item4 item5 .";
     grid-row-gap: 10px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -36,6 +36,10 @@
     grid-area: item4;  
 }
 
+.grid-item:nth-child(5){
+    grid-area: item5;  
+}
+
 .grid-item p{
     height: 10%;
 }
@@ -61,14 +65,14 @@ iframe .adsk-control {
 @media (max-width : 1500px){
     .grid-container{
         grid-template-columns: repeat(2,50%); 
-        grid-template-areas: "item1 item2" "item3 item4 ";
+        grid-template-areas: "item1 item2" "item3 item4" "item5 .";
     }
 }
 
 @media (max-width : 792px){
     .grid-container{
         grid-template-columns: repeat(1,100%); 
-        grid-template-areas: "item1" "item2" "item3" "item4 ";
+        grid-template-areas: "item1" "item2" "item3" "item4 " "item5";
     }
 
     #MyConytainerDiv {
