@@ -76,7 +76,7 @@ iframe .adsk-control {
         height: 115%;
         position: relative;
     }
-    
+
     #MyViewerDiv {
         left: 75px;
         position: relative;
@@ -102,4 +102,9 @@ iframe .adsk-control {
     height: 100%;
     margin: 0;
     background-color: #F0F8FF;
+}
+
+.PDF{
+    position: relative;
+    top: 70px;
 }
