@@ -58,7 +58,7 @@ iframe .adsk-control {
     display: none !important;
 }
 
-@media (max-width : 1400px){
+@media (max-width : 1500px){
     .grid-container{
         grid-template-columns: repeat(2,50%); 
         grid-template-areas: "item1 item2" "item3 item4 ";
