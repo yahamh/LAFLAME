@@ -112,3 +112,11 @@ iframe .adsk-control {
     position: relative;
     top: 70px;
 }
+
+.password{
+    text-align: center;
+    top: 2%;
+    z-index: 2;
+    position: absolute;
+    left: 45%;
+}
