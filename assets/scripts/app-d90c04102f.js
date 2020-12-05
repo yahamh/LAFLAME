@@ -15992,7 +15992,7 @@
           l = r(t("tiny-emitter")),
           p = r(t("./Mailchimp")),
           d = r(t("./tourRoute")),
-          h = window.TRAVIS || {};
+          h = window.YACINE|| {};
         h.emitter = new l.default();
         var _ = new c.default(window.location.origin),
           v = document.querySelector(".js-content"),
@@ -16029,7 +16029,7 @@
             signup: function () {},
           },
           x = function (t) {
-            var e = "TRAVIS SCOTT";
+            var e = "YACINEHAMDANI";
             t && (e = "".concat(t.toUpperCase(), " - ").concat(e)),
               (document.getElementsByTagName("title")[0].innerHTML = e);
           };
@@ -16245,7 +16245,7 @@
           m = r(t("./Mailchimp")),
           y = t("./dateLabels"),
           g = (0, h.default)();
-        window.TRAVIS = window.TRAVIS || {};
+        window.YACINE= window.YACINE|| {};
         var b = (0, p.createClient)({
             space: "ng3f79rto6qv",
             accessToken:

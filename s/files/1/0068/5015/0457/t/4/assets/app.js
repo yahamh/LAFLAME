@@ -11906,7 +11906,7 @@ parcelRequire = (function (e, r, t, n) {
             r = (0, e.default)(0, o).map(function (e) {
               return ""
                 .concat(
-                  "https://cdn.travisscott.com/assets/images/reeses-puffs/"
+                  "https://cdn.yacinehamdani.com/assets/images/reeses-puffs/"
                 )
                 .concat(e, ".jpg");
             }),
@@ -12579,7 +12579,7 @@ parcelRequire = (function (e, r, t, n) {
           for (var r = 0, n = new Array(t); r < t; r++) n[r] = e[r];
           return n;
         }
-        var j = window.TRAVIS || {},
+        var j = window.YACINE|| {},
           S = document.getElementsByTagName("body")[0];
         S.classList.add("js-body-ready"),
           setTimeout(function () {
