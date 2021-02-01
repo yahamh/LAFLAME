@@ -1,6 +1,7 @@
 var script = document.createElement("script");
 script.type = "text/javascript";
 
+
 function verify(password) {
   document.getElementById("failed").innerHTML = "NOPE";
   console.log(password);
