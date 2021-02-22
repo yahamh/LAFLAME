@@ -103,23 +103,21 @@
 </div> -->
 
 
-  <div class="Content" id="main">
-    <div class="C__inner ">
-     
+  
 
-    <!-- The Viewer will be instantiated here -->
-    <div id="MyConytainerDiv">
-      <div id="MyViewerDiv"></div>
-    </div>
-
-
-
+     <div class="Content" id="main">
+      <div class="C__inner"  >
+        <div class="C__video_container">
+          <div class = "C__video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BHWhl1pM_38" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        </div>
+      </div>  
+    </div> 
 
     
-      
-        
-  </div>
     
+          
   </div>
   <div class="Footer">
   <div class="F__cell">
@@ -146,6 +144,8 @@
         <span class="sr-only">SNAPCHAT</span>
       </a>
     </div>
+
+    
   </div>
 </div>
   <!-- build:js assets/scripts/app-d90c04102f.js -->
@@ -157,127 +157,5 @@
 
 
 
-
-  <!-- <script>
-    var stl_viewer=new StlViewer(document.getElementById("stl_cont"), {
-       models: [ 
-         {id:0, filename:"/mystl.stl",display:"flat", opacity:1, color:"#3CA749", rotationy:0.5, animation:{delta:{rotationy:1, msec:2500, loop:true}}},
-        ] });
-   
-  </script> -->
-
-      
-    <!-- The Viewer JS -->
-    <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/viewer3D.js"></script>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
-
-     <!-- Developer JS -->
-     <script>
-      // this is the iframe URL that shows up when sharing a model embed on a page
-      var embedURLfromA360 = 'https://myhub.autodesk360.com/ue2d985c7/shares/public/SH56a43QTfd62c1cd96838115f11a77d9fab?mode=embed'; // Stirling Engine
-  
-      var viewer;
-  
-      function getURN(onURNCallback) {
-          $.get({
-              url: embedURLfromA360.replace('public', 'metadata').replace('mode=embed', ''),
-              dataType: 'json',
-              success: function (metadata) {
-                  if (onURNCallback) {
-                      onURNCallback(metadata.success.body.viewing.views.viewableUrn);
-                  }
-              }
-          })
-      }
-  
-      function getForgeToken(onTokenCallback) {
-          $.post({
-              url: embedURLfromA360.replace('public', 'sign').replace('mode=embed', 'oauth2=true'),
-              data: '{}',
-              success: function (oauth) {
-                  if (onTokenCallback)
-                      onTokenCallback(oauth.accessToken, oauth.validitySeconds);
-              }
-          });
-      }
-  
-      getURN(function (urn) {
-          var options = {
-              env: 'AutodeskProduction',
-              getAccessToken: getForgeToken
-          };
-          var documentId = 'urn:' + urn;
-          Autodesk.Viewing.Initializer(options, function onInitialized() {
-              Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
-          });
-      });
-  
-      // used by viewer.addEventListener(Autodesk.Viewing.TOOLBAR_CREATED_EVENT, onToolbarCreated)
-      const onToolbarCreated = (e) => {
-          const settingsTools = viewer.toolbar.getControl('settingsTools')
-          settingsTools.removeControl('toolbar-modelStructureTool') 
-          settingsTools.removeControl('toolbar-propertiesTool')            
-          settingsTools.removeControl('toolbar-settingsTool')          
-          settingsTools.removeControl('toolbar-fullscreenTool')  
-          settingsTools.removeControl('viewcubeWrapper')            
-  
-          viewer.removeEventListener(
-              Autodesk.Viewing.TOOLBAR_CREATED_EVENT,
-              onToolbarCreated)  
-      } 
-  
-      /**
-       * Autodesk.Viewing.Document.load() success callback.
-       * Proceeds with model initialization.
-       */
-      function onDocumentLoadSuccess(doc) {
-  
-          // A document contains references to 3D and 2D viewables.
-          var viewables = Autodesk.Viewing.Document.getSubItemsWithProperties(doc.getRootItem(), {
-              'type': 'geometry'
-          }, true);
-          if (viewables.length === 0) {
-              console.error('Document contains no viewables.');
-              return;
-          }
-  
-          // Choose any of the avialble viewables
-          var initialViewable = viewables[0];
-          var svfUrl = doc.getViewablePath(initialViewable);
-          var modelOptions = {
-              sharedPropertyDbPath: doc.getPropertyDbPath()
-          };
-  
-          var viewerDiv = document.getElementById('MyViewerDiv');
-          viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerDiv);
-          
-          // Our customization of the Viewer: we are removing some of the toolbar buttons
-          viewer.addEventListener(Autodesk.Viewing.TOOLBAR_CREATED_EVENT, onToolbarCreated)
-          viewer.start(svfUrl, modelOptions, onLoadModelSuccess, onLoadModelError);
-      }
-  
-      /**
-       * Autodesk.Viewing.Document.load() failuire callback.
-       */
-      function onDocumentLoadFailure(viewerErrorCode) {}
-  
-      /**
-       * viewer.loadModel() success callback.
-       * Invoked after the model's SVF has been initially loaded.
-       * It may trigger before any geometry has been downloaded and displayed on-screen.
-       */
-      function onLoadModelSuccess(model) {}
-  
-      /**
-       * viewer.loadModel() failure callback.
-       * Invoked when there's an error fetching the SVF file.
-       */
-      function onLoadModelError(viewerErrorCode) {}
-      </script>
-
-  <!-- endbuild -->
 </body>
 </html>
