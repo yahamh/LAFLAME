@@ -856,7 +856,7 @@ dialog::backdrop {display:none;}
 #privacy-dialog [type=checkbox]:checked+label:after,#privacy-dialog [type=checkbox]:not(:checked)+label:after {content:""; position:absolute; top:0; left:0; transition:all 275ms cubic-bezier(.5,0,.5,0); width:1.25em; height:1.25em; background-image:url(/dist/images/check.svg); background-size:contain; background-position:50%; background-repeat:no-repeat;}
 #privacy-dialog [type=checkbox]:not(:checked)+label:after {opacity:0;}
 #privacy-dialog [type=checkbox]:checked+label:after {opacity:1;}
-html {position:relative; left:50%; right:50%; width:100vw; min-height:100%; margin-right:-50vw; margin-left:-50vw; overflow-x:hidden; overflow-y:scroll;}
+html {position:relative; width:100vw; min-height:100%; margin-right:-50vw; margin-left:-50vw; overflow-x:hidden; overflow-y:scroll;}
 html:not([data-smoothscroll=false]) {scroll-behavior:smooth;}
 body {background:var(--color__background); color:var(--color__text); font-family:Helvetica Neue,Helvetica,sans-serif; font-size:100%; font-feature-settings:"kern"; font-kerning:normal; line-height:1; text-rendering:optimizeLegibility; font-variant-ligatures:common-ligatures;-webkit-text-size-adjust:100%; text-size-adjust:100%; transition:background-color 275ms cubic-bezier(.5,0,.5,0),color 275ms cubic-bezier(.5,0,.5,0);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 body:after {position:absolute; left:-1px; top:-1px; width:1px; height:1px; margin-top:-1px; margin-left:-1px; color:transparent; font:0/0 a; text-shadow:none;}
