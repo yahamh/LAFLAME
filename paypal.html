@@ -5,17 +5,18 @@
 <script>
   paypal.Button.render({
     // Configure environment
-    env: 'production',
+    env: 'sandbox',
     client: {
-      //sandbox: 'demo_sandbox_client_id',
-      production: 'AVdOIES1i2niaD97KUzJ-Adc3aC7Almm0B_7QdO2H5O8TIJotPmBqrKZY9AVn4mE7I0FU6vh5TdiPUJz'
+      sandbox: 'demo_sandbox_client_id',
+      //production: 'AVdOIES1i2niaD97KUzJ-Adc3aC7Almm0B_7QdO2H5O8TIJotPmBqrKZY9AVn4mE7I0FU6vh5TdiPUJz'
     },
     // Customize button (optional)
     locale: 'en_US',
     style: {
-      size: 'small',
-      color: 'gold',
+      size: 'responsive',
+      color: 'silver',
       shape: 'pill',
+      tagline: 'false',
     },
 
     // Enable Pay Now checkout flow (optional)
