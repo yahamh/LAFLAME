@@ -48,7 +48,7 @@
 
 
 </head>
-<body style="overflow: hidden;">
+<body">
   <div class="SkipNavigation">
     <!-- <a href="#main" class="SN__link">Skip to main content</a> -->
   </div><svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -84,11 +84,10 @@
     />
   </span>
 </a>
-  <a href="./me.html" class=" N__link N__bottom_left">ME</a>
-  <!-- <a href="/signup" data-navigo="true" class="js-route N__link N__top_left js-toplink">SIGN UP</a> -->
-  <a href="./3DGallery.html"  class=" N__link N__top_left ">3D Gallery</a>
-  <a href="./projects.html" class="N__link N__top_right ">PROJX</a>
-  <a href="./item1.html" class=" N__link N__bottom_right">VIDEO</a>
+<a href="./3DGallery.html" class=" N__link N__bottom_left">3D GALLERY</a>
+<a href="./about.html" class=" N__link N__top_left ">ABOUT</a>
+<a href="./Earpiece.html" class="N__link N__top_right ">EARPIECE</a>
+<a href="./video.html" class=" N__link N__bottom_right">VIDEO</a>
   <!-- <a href="/signup" class="N__link N__bottom_center js-toggle-social">
     SIGN UP
   </a> -->
@@ -103,22 +102,20 @@
 </div> -->
 
 
-  <div class="Content" id="main">
-    <div class="C__inner ">
-     
-
-    <!-- The Viewer will be instantiated here -->
-    <div id="MyConytainerDiv">
-      <div id="MyViewerDiv"></div>
+<div class="Content" id="main">
+  
+  <div class="C__inner js-content">
+    <div class=" C__video">
+      <div class="C__video_inner">
+        <div class="C__video_container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/vYGl-dc6Ve0" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
-
-
-
-
-    
-      
-        
   </div>
+</div>
     
   </div>
   <div class="Footer">
@@ -167,14 +164,15 @@
   </script> -->
 
       
-    <!-- The Viewer JS -->
+    <!-- The Viewer JS 
     <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/viewer3D.js"></script>
+    -->
 
-    <!-- jQuery -->
+    <!-- jQuery 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    -->
 
-
-     <!-- Developer JS -->
+     <!-- Developer JS 
      <script>
       // this is the iframe URL that shows up when sharing a model embed on a page
       var embedURLfromA360 = 'https://myhub.autodesk360.com/ue2d985c7/shares/public/SH56a43QTfd62c1cd96838115f11a77d9fab?mode=embed'; // Stirling Engine
@@ -277,7 +275,8 @@
        */
       function onLoadModelError(viewerErrorCode) {}
       </script>
-
+    -->
   <!-- endbuild -->
+    
 </body>
 </html>
