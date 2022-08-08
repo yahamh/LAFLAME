@@ -1407,13 +1407,20 @@
                 <div class="m-text-body__content">
                   <div class="a-text-two-columns">
                     <div class="a-text-two-columns__column">
-                      <p> Click on the Paypal button below to safely order your earpiece in <u>sterling silver</u> 
-                        (1000USD). You will be able to review your order.
+                      <p> Click on the Paypal button below to safely order your Earpiece. You will be able to review your order.
                       </p>
                       <br>
                       <br>
+                      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" onsubmit="this.target = 'paypal';
+                      return ReadForm (this);">
+                            
+                             <input type="text" placeholder=" Enter Coupon Here" name="coupcode" ; />
+                             <input type="button" value="APPLY COUPON" onclick="coupval = this.form.coupcode.value; ChkCoup();" />
+                      </form>
+                      <br>
+               
                       <div>
-                        <div id="paypal-button"></div>
+                             <div id="paypal-button"></div>
                       </div>
 
 
@@ -1543,50 +1550,114 @@
   <!-- build:js assets/scripts/app-d90c04102f.js -->
   <script src="assets/scripts/app-d90c04102f.js"></script>
   <script src="script2.js"></script>
-  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-  <script>
-    paypal.Button.render({
-      // Configure environment
-      // env: 'sandbox',
-      env: 'production',
-      client: {
-        // sandbox: 'demo_sandbox_client_id',
-        production: 'AVdOIES1i2niaD97KUzJ-Adc3aC7Almm0B_7QdO2H5O8TIJotPmBqrKZY9AVn4mE7I0FU6vh5TdiPUJz'
-      },
-      // Customize button (optional)
-      locale: 'en_US',
-      style: {
-        size: 'responsive',
-        color: 'silver',
-        shape: 'pill',
-        tagline: 'false',
-      },
+  
 
-      // Enable Pay Now checkout flow (optional)
-      commit: true,
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+       var discnt = 0; // no default percent discount
 
-      // Set up a payment
-      payment: function (data, actions) {
-        return actions.payment.create({
-          transactions: [{
-            amount: {
-              total: '1000',
-              currency: 'USD'
-            },
-            description: 'Purchase of your custom-made sterling silver Earpiece by Yacine Hamdani.',
+       var coupons = new Array( // place to put coupon codes
+              "MILES50", // 1st coupon value - comma seperated
+              "LEWIS50"
+       );
+       var coupdc = new Array( // place to put discounts for coupon vals
+              50,
+              50,
+              15
+       );
+       var coupval = "(blanket)"; // what user entered as coupon code
 
-          }]
-        });
-      },
-      // Execute the payment
-      onAuthorize: function (data, actions) {
-        return actions.payment.execute().then(function () {
-          // Show a confirmation message to the buyer
-          window.alert('Thank you for your purchase!');
-        });
-      }
-    }, '#paypal-button');
-  </script>
+       function ChkCoup() { // check user coupon entry
+              var i;
+              discnt = 0; // assume the worst
+              for (i = 0; i < coupons.length; i++) {
+                     if (coupval == coupons[i]) {
+                            discnt = coupdc[i]; // remember the discount amt
+                            alert("Valid coupon number! \n\n" + discnt +
+                                   "% discount now in effect.");
+                            return;
+                     }
+              }
+              alert("'" + coupval + "' is not a valid code!");
+       }
+
+       function Dollar(val) { // force to valid dollar amount
+              var str, pos, rnd = 0;
+              if (val < .995) rnd = 1; // for old Netscape browsers
+              str = escape(val * 1.0 + 0.005001 + rnd); // float, round, escape
+              pos = str.indexOf(".");
+              if (pos > 0) str = str.substring(rnd, pos + 3);
+              return str;
+       }
+
+       // function ReadForm(obj1) { // apply the discount
+       //        var amt, des;
+       //        amt = 1000//obj1.baseamt.value * 1.0; // base amount
+       //        des = obj1.basedes.value; // base description
+
+       //        if (discnt > 0) { // only if discount is active
+       //               amt = Dollar(amt - (amt * discnt / 100.0));
+       //               des = des + ", " + discnt + "% dis, COUP = " + coupval;
+       //        }
+
+       //        obj1.amount.value = Dollar(amt);
+       //        obj1.item_name.value = des;
+       // }
+
+       paypal.Button.render({
+              // Configure environment
+              // env: 'sandbox',
+              env: 'production',
+              client: {
+                     // sandbox: 'demo_sandbox_client_id',
+                     production: 'AVdOIES1i2niaD97KUzJ-Adc3aC7Almm0B_7QdO2H5O8TIJotPmBqrKZY9AVn4mE7I0FU6vh5TdiPUJz'
+              },
+              // Customize button (optional)
+              locale: 'en_US',
+              style: {
+                     size: 'responsive',
+                     color: 'silver',
+                     shape: 'pill',
+                     tagline: 'false',
+              },
+
+
+              // Enable Pay Now checkout flow (optional)
+              commit: true,
+
+              // Set up a payment
+              payment: function (data, actions) {
+
+                     var amt, des;
+                     amt = 1000//obj1.baseamt.value * 1.0; // base amount
+                     //des = obj1.basedes.value; // base description
+
+                     if (discnt > 0) { // only if discount is active
+                            amt = Dollar(amt - (amt * discnt / 100.0));
+                            des = des + ", " + discnt + "% dis, COUP = " + coupval;
+                     }
+
+
+                     return actions.payment.create({
+                            transactions: [{
+                                   amount: {
+                                          total: amt,
+                                          currency: 'USD'
+                                   },
+                                   description: 'Purchase of your custom-made sterling silver Earpiece by Yacine Hamdani.',
+
+                            }]
+                     });
+              },
+              // Execute the payment
+              onAuthorize: function (data, actions) {
+                     return actions.payment.execute().then(function () {
+                            // Show a confirmation message to the buyer
+                            window.alert('Thank you for your purchase!');
+                     });
+              }
+       }, '#paypal-button');
+</script>
 </body>
 
 </html>
