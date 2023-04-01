@@ -1,4 +1,8 @@
 // vite.config.js
 export default {
-       base: '/LAFLAME/'
+       base: '/LAFLAME/',
+       build: {
+        chunkSizeWarningLimit: 1000
+      }
+      
      }
